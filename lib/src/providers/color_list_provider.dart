@@ -3,8 +3,10 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_colors/src/models/color_result.dart';
 import 'package:riverpod_colors/src/services/api_service.dart';
 
+part 'color_list_provider.g.dart';
+
 @Riverpod(keepAlive: true) //keepAlive keeps data in cache for fastter loading??
-class ColorList extends Notifier<List<ColorResult>> {
+class ColorList extends _$ColorList {
   @override
   List<ColorResult> build() {
     _load();
@@ -37,7 +39,3 @@ class ColorList extends Notifier<List<ColorResult>> {
     }
   }
 }
-
-final colorListProvider = NotifierProvider<ColorList, List<ColorResult>>(
-  ColorList.new,
-);
